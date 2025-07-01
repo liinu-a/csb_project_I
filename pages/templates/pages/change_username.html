@@ -1,0 +1,20 @@
+{% extends "pages/base.html" %}
+
+{% block content %}
+
+<div class="form-container">
+    <h2>Change your current username '{{ user.username }}'</h2>
+    {{ form.non_field_errors }}
+
+    <form action="/change_username" method="post">
+        {% csrf_token %}
+        <div>
+            {{ form.username.label_tag }}
+            {{ form.username }}
+            {{ form.username.errors }}
+        </div>
+        <input type="submit" value="Change" class="regular-btn">
+    </form>
+</div>
+
+{% endblock %}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{% block title %}{% endblock %}</title>
+        <script>
+            function captureScrollPos() {
+                sessionStorage.setItem(`${window.location.href}-scrollY`, `${window.scrollY}`);
+            }
+            function scrollPageToCapturedPos() {
+                document.addEventListener("DOMContentLoaded", () => {
+                    if (sessionStorage.getItem(`${window.location.href}-scrollY`)) {
+                        window.scrollTo(
+                            {top: sessionStorage.getItem(`${window.location.href}-scrollY`), behavior: "instant"}
+                        );
+                        sessionStorage.removeItem(`${window.location.href}-scrollY`);
+                    }
+                })
+            }
+        </script>
+        {% block head %}{% endblock %}
+        <link rel="stylesheet" href="../../static/pages/css/pages.css">
+    </head>
+    <body>
+        {% if messages %}
+        <div id="msg-box">
+            <ul class="messages">
+                {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+            </ul>
+            <span id="msg-box-close-btn" onclick="this.parentElement.style.display='none';">&times;</span>
+        </div>
+        {% endif %}
+        <nav class="nav">
+            <div>
+                <a href="/">Home</a>
+            </div>
+            <div>
+                {% if user.is_authenticated %}
+                <a href="/user_settings">User settings</a>
+                <form action="/logout" method="post">
+			        {% csrf_token %}
+                    <input type="submit" class="regular-btn" value="Log out">
+                </form>
+                {% else %}
+                <a href="/signup">Sign up</a>
+                <a href="/login">Log in</a>
+                {% endif %}
+            </div>
+        </nav>
+
+        <div id="content">
+            {% block content %}{% endblock %}
+        </div>
+    </body>
+</html>

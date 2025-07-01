@@ -1,0 +1,26 @@
+{% extends "pages/base.html" %}
+
+{% block content %}
+
+<div class="form-container">
+    <h2>Write a post</h2>
+    {{ form.non_field_errors }}
+
+    <form action="/write_post" method="post">
+        {% csrf_token %}
+        <div>
+            {{ form.title.label_tag }}
+            {{ form.title }}
+            {{ form.title.errors }}
+        </div>
+        <div>
+            {{ form.text.label_tag }}
+            {{ form.text }}
+            {{ form.text.errors }}
+        </div>
+
+        <input type="submit" value="Post" class="regular-btn">
+    </form>
+</div>
+
+{% endblock %}

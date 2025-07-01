@@ -1,0 +1,24 @@
+{% extends "pages/base.html" %}
+
+{% block content %}
+
+<div id="user-settings">
+    <div>
+        <h2>User data</h2>
+        <ul>
+            <li>Username: {{ user.username }}</li>
+            <li>Joined: {{ user.date_joined }}</li>
+        </ul>
+    </div>
+    <div>
+        <h2>User settings</h2>
+        <ul>
+            <li><a href="/change_username">Change username</a></li>
+            <li><a href="/change_password">Change password</a></li>
+            <li><a href="/confirm_account_deletion">Delete account</a></li>
+        </ul>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

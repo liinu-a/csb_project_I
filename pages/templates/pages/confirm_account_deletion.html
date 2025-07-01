@@ -1,0 +1,21 @@
+{% extends "pages/base.html" %}
+
+{% block content %}
+
+<div class="form-container">
+    <h2>DELETE ACCOUNT</h2>
+    <h3 style="color: rgb(182, 0, 0);">
+        Are you sure you want to delete this account?
+    </h3>
+    <div style="display: flex;">
+        <form method="post" action="/delete_account">
+            {% csrf_token %}
+            <input type="submit" value="YES" class="del-btn">
+        </form>
+        <form method="get" action="/">
+            <input type="submit" value="NO" class="regular-btn" style="margin-left: 2rem;">
+        </form>
+    </div>
+</div>
+
+{% endblock %}
