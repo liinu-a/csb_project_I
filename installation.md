@@ -27,7 +27,7 @@ pip install -r requirements.txt
 Create a .env file in the root directory and set a SECRET_KEY on the file to a unique, unpredictable value as follows:  
 SECRET_KEY=*set this to a unique, unpredictable value*
 
-To create database tables, run the following command
+To create the database tables, run the following command
 
 ```bash
 python manage.py migrate
