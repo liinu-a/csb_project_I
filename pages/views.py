@@ -18,6 +18,10 @@ def indexView(request):
 
 
 def loginView(request):
+    if request.user.is_authenticated:
+        messages.info(request, f"You are already logged in as {request.user.username}.")
+        return redirect("/")
+
     if request.method == "POST":
         form = LoginForm(request.POST)
         if form.is_valid():
