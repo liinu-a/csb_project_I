@@ -1,5 +1,12 @@
 ## Installing and running the application
-Clone the project repository from GitHub to your local computer. In the root directory of the project, create a virtual environment by running the command
+Clone the project repository from GitHub
+
+```bash
+git clone https://github.com/liinu-a/csb_project_I
+cd csb_project_I
+```
+
+Create a virtual environment by running the command
 
 ```bash
 python3 -m venv venv

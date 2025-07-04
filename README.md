@@ -1,3 +1,3 @@
 # csb_project_I
 
-A small project with security flaws and their fixes for the Cyber Security Base course by University of Helsinki and MOOC.fi.
+A web application for the Cyber Security Base course by University of Helsinki and MOOC.fi. The project includes intentional security flaws for learning purposes, as well as their fixes, which are commented out.
